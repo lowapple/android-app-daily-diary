@@ -54,5 +54,12 @@
         android:layout_height="match_parent"
         android:layout_weight="10.5">
 
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:hint="Write.."
+            android:paddingLeft="16dp" />
+
     </LinearLayout>
 </LinearLayout>
