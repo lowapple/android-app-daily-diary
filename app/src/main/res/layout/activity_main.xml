@@ -13,23 +13,80 @@
         android:layout_weight="10.5"
         android:gravity="center">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="Notes"
-            android:textColor="@android:color/black"
-            android:textSize="24dp" />
-
         <FrameLayout
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_gravity="right|center"
-            android:layout_marginRight="16dp"
-            android:background="@drawable/ic_search_black_24dp">
+            android:id="@+id/main_top_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Notes"
+                android:textColor="@android:color/black"
+                android:textSize="24dp" />
+
+            <FrameLayout
+                android:id="@+id/search_btn"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="right|center"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/ic_search_black_24dp">
+
+            </FrameLayout>
         </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/search_top_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/search_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="Search"
+                    android:paddingLeft="16dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:visibility="visible">
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"></HorizontalScrollView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/clear_btn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="9">
+
+                <FrameLayout
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="right|center"
+                    android:layout_marginRight="16dp"
+                    android:background="@drawable/ic_close_black_24dp"></FrameLayout>
+            </LinearLayout>
+        </LinearLayout>
     </FrameLayout>
 
     <RelativeLayout
@@ -38,6 +95,7 @@
         android:layout_weight="2">
 
         <LinearLayout
+            android:id="@+id/empty_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -66,6 +124,7 @@
         android:layout_weight="10.5">
 
         <EditText
+            android:id="@+id/write_edit"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@null"
