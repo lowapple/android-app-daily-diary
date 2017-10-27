@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/select_color_button"
+    android:layout_width="24dp"
+    android:layout_height="24dp"
+    android:background="@drawable/editor_color_circle"
+    android:orientation="vertical">
+
+</FrameLayout>
