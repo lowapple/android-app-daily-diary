@@ -5,6 +5,7 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper
+import android.util.Log
 import com.tapeim99.onedaydiary.DiaryModel
 import java.util.*
 
@@ -28,8 +29,11 @@ class OneDayDiary : SQLiteOpenHelper {
     fun insert(text: String, color: Int) {
         // 읽고 쓰기가 가능하게 DB 열기
         val db = writableDatabase
-        db.execSQL("INSERT INTO OneDayDiaryData VALUES(null, ${text}, ${color});");
-        db.close();
+        val sql = "INSERT INTO OneDayDiaryData VALUES(null, '${text}', ${color});"
+        Log.d("SQL", sql)
+
+        db.execSQL(sql)
+        db.close()
     }
 
     fun getPage(): ArrayList<DiaryModel> {

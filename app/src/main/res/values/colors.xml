@@ -2,5 +2,15 @@
 <resources>
     <color name="colorPrimary">#000000</color>
     <color name="colorPrimaryDark">#000000</color>
-    <color name="colorAccent">#ffffff</color>
+    <color name="colorAccent">#000000</color>
+
+    <color name="editorColor0">#000000</color>
+    <color name="editorColor1">#141414</color>
+    <color name="editorColor2">#282828</color>
+    <color name="editorColor3">#3c3c3c</color>
+    <color name="editorColor4">#505050</color>
+    <color name="editorColor5">#646464</color>
+    <color name="editorColor6">#787878</color>
+    <color name="editorColor7">#8c8c8c</color>
+    <color name="editorColor8">#a0a0a0</color>
 </resources>
