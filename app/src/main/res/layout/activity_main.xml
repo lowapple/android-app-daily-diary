@@ -8,10 +8,9 @@
     android:orientation="vertical"
     tools:context="com.tapeim99.onedaydiary.Activity.MainActivity">
 
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="10.5"
+        android:layout_height="46dp"
         android:gravity="center">
 
         <FrameLayout
@@ -43,46 +42,18 @@
         <LinearLayout
             android:id="@+id/search_top_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="46dp"
             android:orientation="horizontal"
             android:visibility="gone">
 
-            <LinearLayout
+            <EditText
+                android:id="@+id/search_edit"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@null"
+                android:hint="Search"
                 android:layout_weight="1"
-                android:orientation="horizontal"
-                android:visibility="gone">
-
-                <EditText
-                    android:id="@+id/search_edit"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@null"
-                    android:hint="Search"
-                    android:paddingLeft="16dp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:visibility="visible">
-
-                <HorizontalScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <LinearLayout
-                        android:id="@+id/editor_color_container"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="left|center"
-                        android:orientation="horizontal">
-
-                    </LinearLayout>
-                </HorizontalScrollView>
-            </LinearLayout>
+                android:paddingLeft="16dp" />
 
             <LinearLayout
                 android:id="@+id/clear_btn"
@@ -95,10 +66,10 @@
                     android:layout_height="28dp"
                     android:layout_gravity="right|center"
                     android:layout_marginRight="16dp"
-                    android:background="@drawable/ic_close_black_24dp"></FrameLayout>
+                    android:background="@drawable/ic_close_black_24dp"/>
             </LinearLayout>
         </LinearLayout>
-    </FrameLayout>
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -136,19 +107,21 @@
             android:visibility="gone">
 
         </android.support.v7.widget.RecyclerView>
+
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="10.5">
+        android:layout_height="46dp">
 
-        <EditText
+        <TextView
             android:id="@+id/write_edit"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@null"
-            android:hint="Write.."
+            android:text="Write.."
+            android:textSize="18dp"
+            android:gravity="left|center"
             android:paddingLeft="16dp" />
 
     </LinearLayout>

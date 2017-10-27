@@ -12,7 +12,6 @@ import com.tapeim99.onedaydiary.SQL.OneDayDiary
 import com.tapeim99.onedaydiary.Utils.SoftKeyboard
 import kotlinx.android.synthetic.main.activity_main.*
 
-
 class MainActivity : Activity() {
     lateinit var diaryAdapter: DiaryAdapter
     lateinit var oneDayDiary: OneDayDiary
@@ -54,5 +53,31 @@ class MainActivity : Activity() {
             empty_view.visibility = View.VISIBLE
             diary_list.visibility = View.GONE
         }
+
+        search_btn.setOnClickListener {
+            activeSearch()
+            softKeyboard.openSoftKeyboard()
+        }
+
+        clear_btn.setOnClickListener {
+            activeMain()
+            search_edit.isFocusableInTouchMode = true
+            search_edit.requestFocus()
+            softKeyboard.closeSoftKeyboard()
+        }
+    }
+
+    fun activeMain(){
+        main_top_view.visibility = View.VISIBLE
+        search_top_view.visibility = View.GONE
+    }
+
+    fun activeSearch(){
+        main_top_view.visibility = View.GONE
+        search_top_view.visibility = View.VISIBLE
+    }
+
+    fun activeEditor(){
+
     }
 }
