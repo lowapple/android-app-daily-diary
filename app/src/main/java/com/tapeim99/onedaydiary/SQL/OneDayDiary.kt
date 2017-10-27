@@ -36,15 +36,31 @@ class OneDayDiary : SQLiteOpenHelper {
         db.close()
     }
 
+    fun delete(id : Int){
+        val db = writableDatabase
+        val sql = "DELETE FROM OneDayDiaryData WHERE _id=${id};"
+        db.execSQL(sql)
+        db.close()
+    }
+
+    fun update(id : Int, text : String, color : Int){
+        val db = writableDatabase
+        val sql = "UPDATE OneDayDiaryData SET text='${text}',color=${color} WHERE _id=${id};"
+        db.execSQL(sql)
+        db.close()
+    }
+
     fun getPage(): ArrayList<DiaryModel> {
         val db = readableDatabase
         val array = ArrayList<DiaryModel>()
         val cursor: Cursor = db.rawQuery("SELECT * FROM OneDayDiaryData", null);
         while (cursor.moveToNext()) {
+            val id = cursor.getInt(0)
+            Log.d("ID", id.toString())
             val text = cursor.getString(1)
             val color = cursor.getInt(2)
 
-            array.add(DiaryModel(text, color))
+            array.add(DiaryModel(id, text, color))
         }
         return array
     }

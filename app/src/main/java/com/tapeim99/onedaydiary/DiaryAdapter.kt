@@ -10,15 +10,21 @@ import java.util.*
  */
 
 class DiaryAdapter : RecyclerView.Adapter<DiaryHolder>() {
+    interface DiaryEvent {
+        fun diaryClick(holder: DiaryModel)
+    }
     var diaries = ArrayList<DiaryModel>()
+    var diaryEvent : DiaryEvent? = null
 
     override fun getItemCount(): Int = diaries.size
-
     override fun onBindViewHolder(holder: DiaryHolder?, position: Int) {
         val diary = diaries[position]
 
         holder!!.setBackground(diary.color)
         holder.setText(diary.text)
+        holder.background.setOnClickListener {
+            diaryEvent?.diaryClick(diary)
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DiaryHolder {

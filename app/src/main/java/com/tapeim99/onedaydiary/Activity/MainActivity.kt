@@ -10,6 +10,7 @@ import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import com.tapeim99.onedaydiary.DiaryAdapter
+import com.tapeim99.onedaydiary.DiaryHolder
 import com.tapeim99.onedaydiary.DiaryModel
 import com.tapeim99.onedaydiary.R
 import com.tapeim99.onedaydiary.SQL.OneDayDiary
@@ -48,6 +49,16 @@ class MainActivity : Activity() {
 
         oneDayDiary = OneDayDiary(applicationContext)
         diaryAdapter = DiaryAdapter()
+        diaryAdapter.diaryEvent = object : DiaryAdapter.DiaryEvent {
+            override fun diaryClick(holder: DiaryModel) {
+                val intent = intentFor<DiaryActivity>()
+                intent.putExtra("id", holder.id)
+                intent.putExtra("contents", holder.text)
+                intent.putExtra("color", holder.color)
+
+                startActivity(intent)
+            }
+        }
 
         diary_list.layoutManager = LinearLayoutManager(this@MainActivity)
         diary_list.adapter = diaryAdapter

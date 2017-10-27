@@ -21,6 +21,10 @@
         <activity
             android:name=".Activity.EditorActivity"
             android:label="@string/title_activity_editor"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Activity.DiaryActivity"
+            android:label="@string/title_activity_diary"
             android:theme="@style/AppTheme"></activity>
     </application>
 
