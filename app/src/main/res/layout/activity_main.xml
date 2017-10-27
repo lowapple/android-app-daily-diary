@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.tapeim99.onedaydiary.MainActivity">
+    tools:context="com.tapeim99.onedaydiary.Activity.MainActivity">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -110,7 +110,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="visible">
 
             <ImageView
                 android:layout_width="64dp"
@@ -127,6 +128,14 @@
 
         </LinearLayout>
 
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/diary_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:visibility="gone">
+
+        </android.support.v7.widget.RecyclerView>
     </RelativeLayout>
 
     <LinearLayout
