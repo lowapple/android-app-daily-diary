@@ -1,8 +1,6 @@
-# OneDayDiary
+# OneDay Diary
 
-> 하루에 하나씩 일기쓰기!
-
------
+> 24hours android development event app!
 
 - Android Studio 3.0
 - Kotlin
