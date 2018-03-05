@@ -21,6 +21,7 @@
         <activity
             android:name=".Activity.EditorActivity"
             android:label="@string/title_activity_editor"
+            android:windowSoftInputMode="adjustResize"
             android:theme="@style/AppTheme" />
     </application>
 </manifest>
