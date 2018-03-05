@@ -1,7 +1,7 @@
-package com.tapeim99.onedaydiary
+package com.lowapple.onedaydiary
 
 /**
- * Created by ndeveat on 2017. 10. 27..
+ * Created by lowapple on 2017. 10. 27..
  */
 
 data class DiaryModel(var id : Int, var text: String, var color: Int)

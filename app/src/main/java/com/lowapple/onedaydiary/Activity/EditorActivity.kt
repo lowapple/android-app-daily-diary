@@ -1,4 +1,4 @@
-package com.tapeim99.onedaydiary.Activity
+package com.lowapple.onedaydiary.Activity
 
 import android.content.Context
 import android.content.Intent
@@ -12,8 +12,8 @@ import android.support.design.widget.Snackbar
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import com.tapeim99.onedaydiary.R
-import com.tapeim99.onedaydiary.SQL.OneDayDiary
+import com.lowapple.onedaydiary.SQL.OneDayDiary
+import com.lowapple.onedaydiary.R
 
 import kotlinx.android.synthetic.main.activity_editor.*
 import kotlinx.android.synthetic.main.editor_color_button.view.*

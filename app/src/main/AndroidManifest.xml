@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.tapeim99.onedaydiary">
+    package="com.lowapple.onedaydiary">
 
     <application
         android:allowBackup="true"
@@ -25,7 +25,7 @@
         <activity
             android:name=".Activity.DiaryActivity"
             android:label="@string/title_activity_diary"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>

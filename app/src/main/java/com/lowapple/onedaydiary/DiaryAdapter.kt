@@ -1,12 +1,13 @@
-package com.tapeim99.onedaydiary
+package com.lowapple.onedaydiary
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.lowapple.onedaydiary.R
 import java.util.*
 
 /**
- * Created by ndeveat on 2017. 10. 27..
+ * Created by lowapple on 2017. 10. 27..
  */
 
 class DiaryAdapter : RecyclerView.Adapter<DiaryHolder>() {

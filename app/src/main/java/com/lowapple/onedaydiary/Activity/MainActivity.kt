@@ -1,4 +1,4 @@
-package com.tapeim99.onedaydiary.Activity
+package com.lowapple.onedaydiary.Activity
 
 import android.app.Activity
 import android.app.Service
@@ -9,15 +9,12 @@ import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import com.tapeim99.onedaydiary.DiaryAdapter
-import com.tapeim99.onedaydiary.DiaryHolder
-import com.tapeim99.onedaydiary.DiaryModel
-import com.tapeim99.onedaydiary.R
-import com.tapeim99.onedaydiary.SQL.OneDayDiary
-import com.tapeim99.onedaydiary.Utils.SoftKeyboard
+import com.lowapple.onedaydiary.DiaryAdapter
+import com.lowapple.onedaydiary.DiaryModel
+import com.lowapple.onedaydiary.SQL.OneDayDiary
+import com.lowapple.onedaydiary.R
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.intentFor
-import org.jetbrains.anko.sdk25.coroutines.textChangedListener
 
 class MainActivity : Activity() {
     lateinit var diaryAdapter: DiaryAdapter
@@ -28,24 +25,6 @@ class MainActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val mainLayout = main_root
-        val im = getSystemService(Service.INPUT_METHOD_SERVICE) as InputMethodManager
-
-        val softKeyboard: SoftKeyboard
-        softKeyboard = SoftKeyboard(mainLayout, im)
-        softKeyboard.setSoftKeyboardCallback(object : SoftKeyboard.SoftKeyboardChanged {
-
-            override fun onSoftKeyboardShow() {
-                // Code here
-                Log.d("Keyboard", "Show")
-            }
-
-            override fun onSoftKeyboardHide() {
-                // Code here
-                Log.d("Keyboard", "Hide")
-            }
-        })
 
         oneDayDiary = OneDayDiary(applicationContext)
         diaryAdapter = DiaryAdapter()
@@ -68,13 +47,11 @@ class MainActivity : Activity() {
         search_edit.isFocusableInTouchMode = true
         search_btn.setOnClickListener {
             activeSearch()
-            softKeyboard.openSoftKeyboard()
             search_edit.requestFocus()
         }
 
         clear_btn.setOnClickListener {
             activeMain()
-            softKeyboard.closeSoftKeyboard()
             load()
         }
 

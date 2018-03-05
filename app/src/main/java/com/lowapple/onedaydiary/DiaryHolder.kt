@@ -1,4 +1,4 @@
-package com.tapeim99.onedaydiary
+package com.lowapple.onedaydiary
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
@@ -9,7 +9,7 @@ import android.widget.TextView
 import kotlinx.android.synthetic.main.diary_item.view.*
 
 /**
- * Created by ndeveat on 2017. 10. 27..
+ * Created by lowapple on 2017. 10. 27..
  */
 
 class DiaryHolder : RecyclerView.ViewHolder {

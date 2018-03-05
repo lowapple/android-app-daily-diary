@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/OneDayDiary.iml" filepath="$PROJECT_DIR$/OneDayDiary.iml" />
-      <module fileurl="file://C:\Users\slopcat\Desktop\OneDayDiary\OneDayDiary.iml" filepath="C:\Users\slopcat\Desktop\OneDayDiary\OneDayDiary.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\slopcat\Desktop\OneDayDiary\app\app.iml" filepath="C:\Users\slopcat\Desktop\OneDayDiary\app\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/one-day-diary.iml" filepath="$PROJECT_DIR$/one-day-diary.iml" />
     </modules>
   </component>
 </project>

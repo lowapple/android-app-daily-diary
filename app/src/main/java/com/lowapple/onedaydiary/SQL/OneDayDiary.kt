@@ -1,4 +1,4 @@
-package com.tapeim99.onedaydiary.SQL
+package com.lowapple.onedaydiary.SQL
 
 import android.content.Context
 import android.database.Cursor
@@ -6,11 +6,11 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
-import com.tapeim99.onedaydiary.DiaryModel
+import com.lowapple.onedaydiary.DiaryModel
 import java.util.*
 
 /**
- * Created by ndeveat on 2017. 10. 27..
+ * Created by lowapple on 2017. 10. 27..
  */
 
 class OneDayDiary : SQLiteOpenHelper {
