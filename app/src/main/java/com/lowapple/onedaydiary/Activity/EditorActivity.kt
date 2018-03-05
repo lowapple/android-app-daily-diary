@@ -1,9 +1,11 @@
 package com.lowapple.onedaydiary.Activity
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.PorterDuff
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.text.SpannableStringBuilder
 import android.util.Log
@@ -78,7 +80,17 @@ class EditorActivity : AppCompatActivity() {
 
             // Delete Button
             delete_btn.setOnClickListener {
-                oneDayDiary.delete(id)
+                val dialogBuilder = AlertDialog.Builder(this@EditorActivity)
+                dialogBuilder.setMessage("정말 삭제 하시겠습니까?")
+                dialogBuilder.setCancelable(false)
+                dialogBuilder.setPositiveButton("삭제", DialogInterface.OnClickListener { dialogInterface, i ->
+                    oneDayDiary.delete(id)
+                    finish()
+                })
+                dialogBuilder.setNegativeButton("취소", DialogInterface.OnClickListener { dialogInterface, i ->
+                    dialogInterface.cancel()
+                })
+                dialogBuilder.show()
             }
         } catch (e: Exception) {
 

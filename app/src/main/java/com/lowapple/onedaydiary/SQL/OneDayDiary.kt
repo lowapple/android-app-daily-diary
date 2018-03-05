@@ -63,12 +63,13 @@ class OneDayDiary : SQLiteOpenHelper {
         val cursor: Cursor = db.rawQuery("SELECT * FROM OneDayDiaryData", null);
         while (cursor.moveToNext()) {
             val id = cursor.getInt(0)
-            Log.d("ID", id.toString())
             val text = cursor.getString(1)
             val color = cursor.getInt(2)
 
             array.add(DiaryModel(id, text, color))
         }
+        // 뒤집기
+        array.reverse()
         return array
     }
 }
