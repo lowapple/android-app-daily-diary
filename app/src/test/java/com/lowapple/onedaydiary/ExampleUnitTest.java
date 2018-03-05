@@ -1,4 +1,4 @@
-package com.tapeim99.onedaydiary;
+package com.lowapple.onedaydiary;
 
 import org.junit.Test;
 

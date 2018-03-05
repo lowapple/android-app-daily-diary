@@ -5,8 +5,7 @@
     android:id="@+id/main_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.tapeim99.onedaydiary.Activity.MainActivity">
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"

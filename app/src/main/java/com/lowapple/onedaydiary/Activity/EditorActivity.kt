@@ -1,30 +1,24 @@
 package com.lowapple.onedaydiary.Activity
 
-import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.graphics.PorterDuff
-import android.graphics.drawable.ColorDrawable
-import android.os.Build
 import android.os.Bundle
-import android.support.annotation.RequiresApi
-import android.support.design.widget.Snackbar
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
+import android.text.SpannableStringBuilder
 import android.util.Log
+import android.view.View
 import com.lowapple.onedaydiary.SQL.OneDayDiary
 import com.lowapple.onedaydiary.R
 
 import kotlinx.android.synthetic.main.activity_editor.*
 import kotlinx.android.synthetic.main.editor_color_button.view.*
-import org.jetbrains.anko.backgroundColor
 import org.jetbrains.anko.intentFor
-import org.jetbrains.anko.sdk25.coroutines.textChangedListener
 
 class EditorActivity : AppCompatActivity() {
 
-    var diaryColor : Int = 0
-    lateinit var oneDayDiary : OneDayDiary
+    var diaryColor: Int = 0
+    lateinit var oneDayDiary: OneDayDiary
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,13 +43,12 @@ class EditorActivity : AppCompatActivity() {
             view.select_color_button.background.setColorFilter(it, PorterDuff.Mode.MULTIPLY)
             view.setOnClickListener { v ->
                 Log.d("Color", it.toLong().toString())
-                setDiarycolor(it)
+                setDiaryBackground(it)
             }
             select_color_container.addView(view)
         }
 
-        setDiarycolor(color[0])
-
+        // Write Button
         write_btn.setOnClickListener {
             oneDayDiary.insert(contents.text.toString(), diaryColor)
 
@@ -64,13 +57,40 @@ class EditorActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        // Clear Button
         clear_btn.setOnClickListener {
             finish()
         }
+
+        delete_btn.visibility = View.INVISIBLE
+
+        try {
+            val id = intent.extras.getInt("id", oneDayDiary.size())
+            val contents = intent.extras.getString("contents")
+            val background = intent.extras.getInt("color", 0)
+            val isEdit = intent.extras.getBoolean("edit", false)
+
+            setDiaryBackground(background)
+            setDiaryContent(contents)
+
+            if (isEdit)
+                delete_btn.visibility = View.VISIBLE
+
+            // Delete Button
+            delete_btn.setOnClickListener {
+                oneDayDiary.delete(id)
+            }
+        } catch (e: Exception) {
+
+        }
     }
 
-    fun setDiarycolor(color : Int){
+    fun setDiaryBackground(color: Int) {
         diaryColor = color
         diary_background.background.setColorFilter(diaryColor, PorterDuff.Mode.MULTIPLY)
+    }
+
+    fun setDiaryContent(content: String) {
+        contents.text = SpannableStringBuilder(content)
     }
 }

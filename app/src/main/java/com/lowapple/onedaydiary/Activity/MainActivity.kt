@@ -13,6 +13,7 @@ import com.lowapple.onedaydiary.DiaryAdapter
 import com.lowapple.onedaydiary.DiaryModel
 import com.lowapple.onedaydiary.SQL.OneDayDiary
 import com.lowapple.onedaydiary.R
+import com.lowapple.onedaydiary.Utils.SoftKeyboard
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.intentFor
 
@@ -26,14 +27,32 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val mainLayout = main_root
+        val im = getSystemService(Service.INPUT_METHOD_SERVICE) as InputMethodManager
+
+        val softKeyboard: SoftKeyboard
+        softKeyboard = SoftKeyboard(mainLayout, im)
+        softKeyboard.setSoftKeyboardCallback(object : SoftKeyboard.SoftKeyboardChanged {
+
+            override fun onSoftKeyboardShow() {
+                // Code here
+                Log.d("Keyboard", "Show")
+            }
+
+            override fun onSoftKeyboardHide() {
+                // Code here
+                Log.d("Keyboard", "Hide")
+            }
+        })
         oneDayDiary = OneDayDiary(applicationContext)
         diaryAdapter = DiaryAdapter()
         diaryAdapter.diaryEvent = object : DiaryAdapter.DiaryEvent {
             override fun diaryClick(holder: DiaryModel) {
-                val intent = intentFor<DiaryActivity>()
+                val intent = intentFor<EditorActivity>()
                 intent.putExtra("id", holder.id)
                 intent.putExtra("contents", holder.text)
                 intent.putExtra("color", holder.color)
+                intent.putExtra("edit", true)
 
                 startActivity(intent)
             }
@@ -47,11 +66,13 @@ class MainActivity : Activity() {
         search_edit.isFocusableInTouchMode = true
         search_btn.setOnClickListener {
             activeSearch()
+            softKeyboard.openSoftKeyboard()
             search_edit.requestFocus()
         }
 
         clear_btn.setOnClickListener {
             activeMain()
+            softKeyboard.closeSoftKeyboard()
             load()
         }
 

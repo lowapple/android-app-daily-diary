@@ -1,4 +1,4 @@
-package com.tapeim99.onedaydiary.Utils;
+package com.lowapple.onedaydiary.Utils;
 
 import java.util.ArrayList;
 import java.util.List;

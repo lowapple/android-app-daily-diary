@@ -50,6 +50,13 @@ class OneDayDiary : SQLiteOpenHelper {
         db.close()
     }
 
+    fun size() : Int {
+        val db = writableDatabase
+        val sql = "SELECT * FROM OneDayDiaryData"
+        val cursor = db.rawQuery(sql, null)
+        return cursor.columnCount
+    }
+
     fun getPage(): ArrayList<DiaryModel> {
         val db = readableDatabase
         val array = ArrayList<DiaryModel>()
