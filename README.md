@@ -12,7 +12,7 @@
 * 이미지 위에 글쓰기
 * 인스타 그램 공유
 
-![첫 화면](./assets/1.jpg){: width="310" height="640"}
-![작성 화면](./assets/2.jpg){: width="310" height="640"}
-![작성 화면](./assets/3.jpg){: width="310" height="640"}
-![첫 화면](./assets/4.jpg){: width="310" height="640"}
+![첫 화면](./assets/1.jpg)
+![작성 화면](./assets/2.jpg)
+![작성 화면](./assets/3.jpg)
+![첫 화면](./assets/4.jpg)
