@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 import com.lowapple.onedaydiary.DiaryModel
 import java.util.*
+import kotlin.collections.ArrayList
 
 /**
  * Created by lowapple on 2017. 10. 27..
@@ -26,6 +27,12 @@ class OneDayDiary : SQLiteOpenHelper {
 
     }
 
+    fun clear() {
+        getIds().forEach({ action ->
+            delete(action)
+        })
+    }
+
     fun insert(text: String, color: Int) {
         // 읽고 쓰기가 가능하게 DB 열기
         val db = writableDatabase
@@ -36,25 +43,36 @@ class OneDayDiary : SQLiteOpenHelper {
         db.close()
     }
 
-    fun delete(id : Int){
+    fun delete(id: Int) {
         val db = writableDatabase
         val sql = "DELETE FROM OneDayDiaryData WHERE _id=${id};"
         db.execSQL(sql)
         db.close()
     }
 
-    fun update(id : Int, text : String, color : Int){
+    fun update(id: Int, text: String, color: Int) {
         val db = writableDatabase
         val sql = "UPDATE OneDayDiaryData SET text='${text}',color=${color} WHERE _id=${id};"
         db.execSQL(sql)
         db.close()
     }
 
-    fun size() : Int {
+    fun size(): Int {
         val db = writableDatabase
         val sql = "SELECT * FROM OneDayDiaryData"
         val cursor = db.rawQuery(sql, null)
         return cursor.columnCount
+    }
+
+    fun getIds(): ArrayList<Int> {
+        val db = readableDatabase
+        val array = ArrayList<Int>()
+        val cursor: Cursor = db.rawQuery("SELECT * FROM OneDayDiaryData", null);
+        while (cursor.moveToNext()) {
+            val id = cursor.getInt(0)
+            array.add(id)
+        }
+        return array;
     }
 
     fun getPage(): ArrayList<DiaryModel> {
