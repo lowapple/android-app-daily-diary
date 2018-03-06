@@ -7,20 +7,20 @@
     <LinearLayout
         android:id="@+id/search_top_view"
         android:layout_width="match_parent"
-        android:layout_height="46dp"
+        android:layout_height="@dimen/action_bar"
         android:orientation="horizontal"
         android:visibility="visible">
 
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:paddingLeft="16dp">
+            android:layout_weight="1">
 
             <LinearLayout
                 android:id="@+id/select_color_container"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/basic_space"
                 android:gravity="left|center"
                 android:orientation="horizontal">
 
@@ -37,7 +37,7 @@
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:layout_gravity="right|center"
-                android:layout_marginRight="16dp"
+                android:layout_marginRight="@dimen/basic_space"
                 android:background="@drawable/ic_close_black_24dp" />
         </LinearLayout>
     </LinearLayout>
@@ -46,56 +46,62 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="18dp"
-            android:gravity="left|bottom">
+            android:layout_height="match_parent">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="배경 색"
-                android:textSize="18dp" />
+                android:layout_gravity="bottom|left"
+                android:layout_marginBottom="@dimen/basic_space_outline"
+                android:layout_marginLeft="@dimen/basic_space"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-            <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/diary_background"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_marginLeft="8dp"
-                android:background="@drawable/editor_color_circle" />
-        </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="배경 색"
+                    android:textSize="@dimen/bottom_text_size" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="bottom|right">
+                <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/diary_background"
+                    android:layout_width="@dimen/background_color_circle"
+                    android:layout_height="@dimen/background_color_circle"
+                    android:layout_marginLeft="@dimen/basic_space_outline"
+                    android:background="@drawable/editor_color_circle" />
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/delete_btn"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:layout_marginRight="16dp"
-                android:clickable="true"
-                android:textSize="18dp"
-                android:text="삭제"
-                android:textColor="@android:color/darker_gray"/>
+                android:layout_gravity="bottom|right"
+                android:layout_marginBottom="@dimen/basic_space_outline"
+                android:layout_marginRight="@dimen/basic_space"
+                android:gravity="center">
 
-            <TextView
-                android:id="@+id/write_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:layout_marginRight="16dp"
-                android:clickable="true"
-                android:paddingLeft="16dp"
-                android:text="작성하기"
-                android:textColor="@android:color/black"
-                android:textSize="18dp" />
+                <TextView
+                    android:id="@+id/delete_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/basic_space"
+                    android:clickable="true"
+                    android:text="삭제"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="@dimen/bottom_text_size" />
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/write_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:text="작성하기"
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/bottom_text_size" />
+
+            </LinearLayout>
+        </FrameLayout>
 
         <EditText
             android:id="@+id/contents"
