@@ -2,6 +2,7 @@ package com.lowapple.onedaydiary.Activity
 
 import android.app.Activity
 import android.app.Service
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.text.Editable
@@ -20,8 +21,7 @@ import org.jetbrains.anko.intentFor
 class MainActivity : Activity() {
     lateinit var diaryAdapter: DiaryAdapter
     lateinit var oneDayDiary: OneDayDiary
-
-    lateinit var diaryList : ArrayList<DiaryModel>
+    lateinit var diaryList: ArrayList<DiaryModel>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +45,9 @@ class MainActivity : Activity() {
             }
         })
         oneDayDiary = OneDayDiary(applicationContext)
-        diaryAdapter = DiaryAdapter()
+        // oneDayDiary.clear()
+
+        diaryAdapter = DiaryAdapter(this@MainActivity)
         diaryAdapter.diaryEvent = object : DiaryAdapter.DiaryEvent {
             override fun diaryClick(holder: DiaryModel) {
                 val intent = intentFor<EditorActivity>()
@@ -60,8 +62,6 @@ class MainActivity : Activity() {
 
         diary_list.layoutManager = LinearLayoutManager(this@MainActivity)
         diary_list.adapter = diaryAdapter
-
-        load()
 
         search_edit.isFocusableInTouchMode = true
         search_btn.setOnClickListener {
@@ -84,9 +84,11 @@ class MainActivity : Activity() {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
             }
+
             override fun afterTextChanged(p0: Editable?) {
 
             }
+
             override fun onTextChanged(p0: CharSequence, p1: Int, p2: Int, p3: Int) {
                 val data = diaryList.filter { it.text.contains(p0) }
                 diaryAdapter.diaries = ArrayList<DiaryModel>(data)
@@ -95,7 +97,7 @@ class MainActivity : Activity() {
         })
     }
 
-    fun load(){
+    fun load() {
         diaryList = oneDayDiary.getPage()
         if (diaryList.size > 0) {
             empty_view.visibility = View.GONE
@@ -108,13 +110,18 @@ class MainActivity : Activity() {
         }
     }
 
-    fun activeMain(){
+    fun activeMain() {
         main_top_view.visibility = View.VISIBLE
         search_top_view.visibility = View.GONE
     }
 
-    fun activeSearch(){
+    fun activeSearch() {
         main_top_view.visibility = View.GONE
         search_top_view.visibility = View.VISIBLE
+    }
+
+    override fun onResume() {
+        super.onResume()
+        load()
     }
 }

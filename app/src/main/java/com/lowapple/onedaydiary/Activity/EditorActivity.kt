@@ -12,6 +12,7 @@ import android.util.Log
 import android.view.View
 import com.lowapple.onedaydiary.SQL.OneDayDiary
 import com.lowapple.onedaydiary.R
+import com.lowapple.onedaydiary.Utils.ColorUtility
 
 import kotlinx.android.synthetic.main.activity_editor.*
 import kotlinx.android.synthetic.main.editor_color_button.view.*
@@ -20,43 +21,36 @@ import org.jetbrains.anko.intentFor
 class EditorActivity : AppCompatActivity() {
 
     var diaryColor: Int = 0
+    var diaryColorIndex: Int = 0
     lateinit var oneDayDiary: OneDayDiary
+    var isEdit = false
+    var id = 0
+    lateinit var color : ColorUtility
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_editor)
 
         oneDayDiary = OneDayDiary(this@EditorActivity)
+        color = ColorUtility(this@EditorActivity)
 
-        val color = listOf<Int>(
-                ContextCompat.getColor(this@EditorActivity, R.color.editorColor0),
-                ContextCompat.getColor(this@EditorActivity, R.color.editorColor1),
-                ContextCompat.getColor(this@EditorActivity, R.color.editorColor2),
-                ContextCompat.getColor(this@EditorActivity, R.color.editorColor3),
-                ContextCompat.getColor(this@EditorActivity, R.color.editorColor4),
-                ContextCompat.getColor(this@EditorActivity, R.color.editorColor5),
-                ContextCompat.getColor(this@EditorActivity, R.color.editorColor6),
-                ContextCompat.getColor(this@EditorActivity, R.color.editorColor7),
-                ContextCompat.getColor(this@EditorActivity, R.color.editorColor8)
-        )
-
-        color.forEach {
+        color.getColors().forEachIndexed { index, i ->
             val view = layoutInflater.inflate(R.layout.editor_color_button, select_color_container, false)
-            view.select_color_button.background.setColorFilter(it, PorterDuff.Mode.MULTIPLY)
+            view.select_color_button.background.setColorFilter(i, PorterDuff.Mode.MULTIPLY)
             view.setOnClickListener { v ->
-                Log.d("Color", it.toLong().toString())
-                setDiaryBackground(it)
+                setDiaryBackground(index)
             }
             select_color_container.addView(view)
         }
 
         // Write Button
         write_btn.setOnClickListener {
-            oneDayDiary.insert(contents.text.toString(), diaryColor)
-
-            val intent = intentFor<MainActivity>()
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            startActivity(intent)
+            val text = contents.text.toString()
+            if (!isEdit)
+                oneDayDiary.insert(text, diaryColorIndex)
+            else
+                oneDayDiary.update(id, text, diaryColorIndex)
+            finish()
         }
 
         // Clear Button
@@ -66,11 +60,13 @@ class EditorActivity : AppCompatActivity() {
 
         delete_btn.visibility = View.INVISIBLE
 
+        setDiaryBackground(0)
         try {
-            val id = intent.extras.getInt("id", oneDayDiary.size())
+            isEdit = intent.extras.getBoolean("edit", false)
+
+            val id = intent.extras.getInt("id")
             val contents = intent.extras.getString("contents")
             val background = intent.extras.getInt("color", 0)
-            val isEdit = intent.extras.getBoolean("edit", false)
 
             setDiaryBackground(background)
             setDiaryContent(contents)
@@ -98,7 +94,8 @@ class EditorActivity : AppCompatActivity() {
     }
 
     fun setDiaryBackground(color: Int) {
-        diaryColor = color
+        diaryColor = this.color.getColor(color)
+        diaryColorIndex = color
         diary_background.background.setColorFilter(diaryColor, PorterDuff.Mode.MULTIPLY)
     }
 
