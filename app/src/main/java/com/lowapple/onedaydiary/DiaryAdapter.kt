@@ -25,8 +25,10 @@ class DiaryAdapter(context: Context) : RecyclerView.Adapter<DiaryHolder>() {
     override fun onBindViewHolder(holder: DiaryHolder, position: Int) {
         val diary = diaries[position]
 
-        if (diary.color > 0)
+        if (diary.color >= 0)
             holder.setBackground(color.getColor(diary.color))
+        else
+            holder.setBackground(0)
         holder.setText(diary.text)
         holder.background.setOnClickListener {
             diaryEvent?.diaryClick(diary)
