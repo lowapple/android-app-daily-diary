@@ -1,3 +1,8 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="bottom_text_size">18dp</dimen>
+    <dimen name="basic_space">18dp</dimen>
+    <dimen name="basic_space_outline">8dp</dimen>
+    <dimen name="background_color_circle">18dp</dimen>
+    <dimen name="action_bar">48dp</dimen>
 </resources>

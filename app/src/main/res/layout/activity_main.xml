@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,13 +7,13 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="46dp"
+        android:layout_height="@dimen/action_bar"
         android:gravity="center">
 
         <FrameLayout
             android:id="@+id/main_top_view"
             android:layout_width="match_parent"
-            android:layout_height="46dp"
+            android:layout_height="@dimen/action_bar"
             android:visibility="visible">
 
             <TextView
@@ -41,7 +39,7 @@
         <LinearLayout
             android:id="@+id/search_top_view"
             android:layout_width="match_parent"
-            android:layout_height="46dp"
+            android:layout_height="@dimen/action_bar"
             android:orientation="horizontal"
             android:visibility="gone">
 
@@ -51,10 +49,10 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@null"
-                android:imeOptions="actionDone"
-                android:lines="1"
-                android:inputType="text"
                 android:hint="Search"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:lines="1"
                 android:paddingLeft="16dp" />
 
             <LinearLayout
