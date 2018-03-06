@@ -25,7 +25,7 @@ class EditorActivity : AppCompatActivity() {
     lateinit var oneDayDiary: OneDayDiary
     var isEdit = false
     var id = 0
-    lateinit var color : ColorUtility
+    lateinit var color: ColorUtility
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -101,5 +101,6 @@ class EditorActivity : AppCompatActivity() {
 
     fun setDiaryContent(content: String) {
         contents.text = SpannableStringBuilder(content)
+        contents.setSelection(content.length)
     }
 }
