@@ -1,4 +1,4 @@
-package com.lowapple.onedaydiary.Activity
+package com.lowapple.thinking.Activity
 
 import android.app.Activity
 import android.app.Service
@@ -10,11 +10,11 @@ import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import com.lowapple.onedaydiary.DiaryAdapter
-import com.lowapple.onedaydiary.DiaryModel
-import com.lowapple.onedaydiary.SQL.OneDayDiary
-import com.lowapple.onedaydiary.R
-import com.lowapple.onedaydiary.Utils.SoftKeyboard
+import com.lowapple.thinking.DiaryAdapter
+import com.lowapple.thinking.DiaryModel
+import com.lowapple.thinking.SQL.OneDayDiary
+import com.lowapple.thinking.R
+import com.lowapple.thinking.Utils.SoftKeyboard
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.intentFor
 

@@ -1,4 +1,4 @@
-package com.lowapple.onedaydiary.Activity
+package com.lowapple.thinking.Activity
 
 import android.content.DialogInterface
 import android.content.Intent
@@ -10,9 +10,9 @@ import android.support.v7.app.AppCompatActivity
 import android.text.SpannableStringBuilder
 import android.util.Log
 import android.view.View
-import com.lowapple.onedaydiary.SQL.OneDayDiary
-import com.lowapple.onedaydiary.R
-import com.lowapple.onedaydiary.Utils.ColorUtility
+import com.lowapple.thinking.SQL.OneDayDiary
+import com.lowapple.thinking.R
+import com.lowapple.thinking.Utils.ColorUtility
 
 import kotlinx.android.synthetic.main.activity_editor.*
 import kotlinx.android.synthetic.main.editor_color_button.view.*

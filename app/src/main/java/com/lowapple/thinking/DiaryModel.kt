@@ -1,4 +1,4 @@
-package com.lowapple.onedaydiary
+package com.lowapple.thinking
 
 /**
  * Created by lowapple on 2017. 10. 27..

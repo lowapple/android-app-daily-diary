@@ -1,4 +1,4 @@
-package com.lowapple.onedaydiary
+package com.lowapple.thinking
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView

@@ -1,11 +1,11 @@
-package com.lowapple.onedaydiary
+package com.lowapple.thinking
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.lowapple.onedaydiary.R
-import com.lowapple.onedaydiary.Utils.ColorUtility
+import com.lowapple.thinking.R
+import com.lowapple.thinking.Utils.ColorUtility
 import java.util.*
 
 /**

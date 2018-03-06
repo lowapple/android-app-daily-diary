@@ -1,4 +1,4 @@
-package com.lowapple.onedaydiary.Utils;
+package com.lowapple.thinking.Utils;
 
 import java.util.ArrayList;
 import java.util.List;

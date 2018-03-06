@@ -1,8 +1,8 @@
-package com.lowapple.onedaydiary.Utils
+package com.lowapple.thinking.Utils
 
 import android.content.Context
 import android.support.v4.content.ContextCompat
-import com.lowapple.onedaydiary.R
+import com.lowapple.thinking.R
 
 /**
  * Created by junsu on 2018-03-06.
